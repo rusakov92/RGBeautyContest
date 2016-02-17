@@ -1,0 +1,75 @@
+@font-face {
+    font-family: 'rgfont';
+    src: url('fonts/GothamRnd-Book.otf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+html, body {
+    height: 100%;
+    background-color: #533277;
+    font-family: 'rgfont';
+}
+
+.Logo {
+    width: 50%;
+}
+
+.Wrapper {
+    height: 100%;
+    box-sizing: border-box;
+}
+
+.Middle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 77%;
+    box-sizing: border-box;
+}
+
+.Main {
+    padding: 40px 50px;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.List,
+.Message {
+    margin: 20px 0;
+    transition: opacity ease-in 1s;
+}
+
+.List > li {
+    list-style: none;
+}
+
+.Title,
+.Title__question {
+    padding: 40px 0;
+    margin-bottom: 50px;
+    font-family: 'rgfont';
+    color: #fff;
+}
+
+.Title__question {
+    text-align: center;
+}
+
+.Form {
+    margin-left: 10px;
+}
+
+.Form__button {
+    margin-left: 5px;
+}
+
+.Form__button--vote {
+    margin: 10px 0;
+}
+
+.Form--vote {
+    margin: 0 auto;
+    width: 700px;
+    text-align: center;
+}
