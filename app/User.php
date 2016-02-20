@@ -68,7 +68,7 @@ class User extends Authenticatable
      */
     public function makeVote(array $queenIds)
     {
-        if ($this->canVote()) {
+        if ($this->canVote() && ! $this->hasVoted()) {
             $this->votes()->sync($queenIds);
         }
     }
@@ -104,5 +104,15 @@ class User extends Authenticatable
         }
 
         return $voteIds;
+    }
+
+    /**
+     * Determent if user voted already.
+     *
+     * @return bool
+     */
+    public function hasVoted()
+    {
+        return $this->votesGiven() > 0;
     }
 }

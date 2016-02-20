@@ -32,7 +32,9 @@
                         @endforeach
                     </select>
 
-                    <input type="submit" class="Form__button--vote btn btn-default" value="Vote">
+                    @if (! Auth::user()->hasVoted())
+                        <input type="submit" class="Form__button--vote btn btn-default" value="Vote">
+                    @endif
                     <a href="{{ action('Auth\AuthController@getLogout') }}" class="btn btn-default">Logout</a>
                 </form>
 
@@ -61,7 +63,8 @@
     queens.select2({
         data: {!! $queens !!},
         maximumSelectionLength: 7,
-        placeholder: 'Please select at least 3 names'
+        placeholder: 'Please select at least 3 names',
+        disabled: {{ Auth::user()->hasVoted() ? 1 : 0 }}
     });
 
     queens.on('select2:select', function (e) {
@@ -78,8 +81,6 @@
 
     (function () {
         var successMessage = $('#success');
-
-        console.log(successMessage.length);
 
         if (successMessage.length) {
             setTimeout(function () {
